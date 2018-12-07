@@ -32,7 +32,7 @@ app.get('/:property/:environment/:command', function (req, res) {
   console.log('Request Property:', req.params.property)
   console.log('Environment:', req.params.environment)
   console.log('Command:', req.params.command)
-  console.log(`This is Zion Control requesting immediate stand down of arms at Gate 3. We have the Nebuchadnezzar on approach. Let's open her up. Nebuchadnezzar, you are clear through Gate 3 to Bay 7.`)
+  console.log(`This is Zion Control requesting immediate stand down of arms at ${req.params.property}. We have the ${req.params.environment} environment on approach. Let's open her up. ${req.params.environment}, you are clear through ${req.params.command} to ${config[req.params.property][req.params.environment][req.params.command]}`)
 });
 
 app.listen(3000, function () {

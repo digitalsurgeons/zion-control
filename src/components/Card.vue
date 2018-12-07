@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     sendRequest(endpoint) {
-      get.concat('http://localhost:3000'+endpoint+'fweafewae', function (err, res, data) {
+      get.concat('http://localhost:3000'+endpoint, function (err, res, data) {
         if (res.statusCode == 200) {
           this.$notify({
             group: 'server',
