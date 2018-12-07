@@ -1,0 +1,16 @@
+module.exports = {
+  property1: {
+    environment1: {
+      command1: 'ssh'
+    },
+    environment2: {
+      command1: 'ssh',
+      command2: 'curl'
+    }
+  },
+  property2: {
+    environment1: {
+      command1: 'command'
+    }
+  }
+}
