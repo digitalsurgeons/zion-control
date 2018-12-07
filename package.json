@@ -13,6 +13,7 @@
     "figlet": "^1.2.1",
     "mersenne-twister": "^1.1.0",
     "node-ssh": "^5.1.2",
+    "simple-get": "^3.0.3",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   },
