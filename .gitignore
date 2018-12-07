@@ -22,3 +22,9 @@ yarn-error.log*
 
 config.js
 *.sh
+
+# exclude everything
+scripts/*
+
+# exception to the rule
+!scripts/.gitkeep
