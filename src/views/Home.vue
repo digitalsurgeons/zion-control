@@ -1,7 +1,11 @@
 <template>
   <div class="home">
     <h5>zion-control</h5>
-    <router-link v-if="$route.name != 'home'" :to="upRoute"><h2>Go Up</h2></router-link>
+    <template >
+      <h4>{{ currentRoute }}</h4>
+      <router-link v-if="$route.name != 'home'" :to="upRoute"><h2>Go Up</h2></router-link>
+    </template>
+
     <div class="buttons">
       <template v-if="$route.name == 'environment'">
         <template v-for="(value, key) in $options.config[$route.params.property][$route.params.environment]">
@@ -42,6 +46,10 @@ export default {
       } else {
         return splitArray.join('/')
       }
+    },
+    currentRoute() {
+      let splitArray = this.$route.path.split('/')
+      return splitArray.pop()
     }
   }
 }
