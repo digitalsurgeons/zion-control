@@ -1,11 +1,20 @@
 <template>
-<router-link :to="route">
-  <div class="card">
-    <div class="inside">
-      {{text}}
-    </div>
+  <div>
+    <router-link v-if="$route.name != 'environment'" :to="link">
+      <div class="card">
+        <div class="inside">
+          <h3>{{text}}</h3>
+        </div>
+      </div>
+    </router-link>
+    <template v-else>
+      <div class="card" @click="sendRequest(endpoint)">
+        <div class="inside">
+          <h3>{{text}}</h3>
+        </div>
+      </div>
+    </template>
   </div>
-</router-link>
 </template>
 
 <script>
@@ -15,18 +24,16 @@ export default {
   name: 'Card',
   props: {
     text: String,
-    route: String
+    link: String,
+    endpoint: String
   },
-  // methods: {
-  //   sendRequest(event) {
-
-  //   }
-  // },
-  // computed: {
-  //   upRoute() {
-  //     return this.$route.path
-  //   }
-  // }
+  methods: {
+    sendRequest(endpoint) {
+      get.concat('http://localhost:3000'+endpoint, function (err, res, data) {
+        alert(data.toString())
+      })
+    }
+  }
 }
 </script>
 

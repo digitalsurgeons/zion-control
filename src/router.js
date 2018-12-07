@@ -20,11 +20,6 @@ export default new Router({
       path: '/:property/:environment',
       name: 'environment',
       component: Home
-    },
-    {
-      path: '/:property/:environment/:command',
-      name: 'command',
-      component: Home
-    },
+    }
   ]
 })

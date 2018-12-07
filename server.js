@@ -1,12 +1,14 @@
 const process = require('child_process')
 const config = require('./config')
 const express = require('express');
+const cors = require('cors');
 const figlet = require('figlet');
 const MersenneTwister = require('mersenne-twister');
 const colors = require('colors');
 var generator = new MersenneTwister();
 
 const app = express();
+app.use(cors());
 
 var figFonts = figlet.fontsSync()
 console.log(('\n'+figlet.textSync('zion-control', {font: figFonts[Math.floor(generator.random() * figFonts.length)]})).green)
@@ -18,7 +20,7 @@ app.get('/:property/:environment/:command', function (req, res) {
   } else {
     try {
       let execResponse = process.execSync(config[req.params.property][req.params.environment][req.params.command], {encoding: 'ascii'})
-      console.log(`Success: $(execResponse)`)
+      console.log(`Success: ${execResponse}`)
       res.status(200).send(execResponse)
     }
     catch(err) {
