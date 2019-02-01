@@ -76,6 +76,7 @@ export default {
   margin-left: 5vw;
   margin-right: 5vw;
   cursor: pointer;
+  font-size: 1vw;
 }
 
 .inside {
